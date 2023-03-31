@@ -1,15 +1,14 @@
-from fastapi import FastAPI, Response, Request
+from fastapi import FastAPI, Response, Request, Form, status
 from fastapi.responses import PlainTextResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
+from typing import Annotated
 import uvicorn
 import sqlite3
 from os.path import isfile
 
 from hashlib import sha256, md5
-
-db_path = "data.db"
 
 
 def init_db(db_name: str) -> None:
@@ -71,12 +70,9 @@ async def register_get(request: Request):
 
 
 @app.post("/register", response_class=PlainTextResponse)
-async def register_post(request: Request):
-    form = await request.form()
-    email = form["email"]
-    plain_password = form["passwd"]
+async def register_post(email: Annotated[str, Form()], password: Annotated[str, Form()]):
     try:
-        hashed_password = sha256(plain_password.encode()).hexdigest()
+        hashed_password = sha256(password.encode()).hexdigest()
         user_id = await create_user(con_db, email, hashed_password)
         return PlainTextResponse(f"User {user_id} succesful registered")
     except Exception as e:
@@ -89,24 +85,23 @@ async def login_get(request: Request):
 
 
 @app.post("/login", response_class=PlainTextResponse)
-async def login_post(request: Request):
-    form = await request.form()
-    email = form["email"]
-    plain_password = form["passwd"]
+async def login_post(email: Annotated[str, Form()], password: Annotated[str, Form()]):
     try:
-        hashed_password = sha256(plain_password.encode()).hexdigest()
+        hashed_password = sha256(password.encode()).hexdigest()
         user_id = await auth_user(con_db, email, hashed_password)
         if user_id is None:
             return PlainTextResponse("Wrong email or password")
         else:
             cookie_data = (str(user_id)+email+hashed_password).encode()
             cookie = md5(cookie_data).hexdigest()
+
             response = PlainTextResponse(f"Login succesfull! Hello {email}!")
             response.set_cookie(key="sess_id", value=cookie)
             return response
 
     except Exception as e:
         return PlainTextResponse(f"Error {e}")
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
