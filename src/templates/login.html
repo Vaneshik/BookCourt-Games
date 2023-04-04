@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>BookCourt</title>
-        <link href="styles.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <form class="head_str"> 
-            <a id="bookcourt">BookCourt</a>
-            <div>
-                <a href="" class="games">Угадай книгу</a>
-                <a href="mathematics.html" class="games">A + B - C = D</a>
-                <a href="" class="games">Книга по истории</a>
-            </div>
-            <div>
-                <a href="/login" class="identification">Вход</a>
-            </div>
-        </form>
-        <hr size="2" style="background-color: black;">
-        <div class="InputsDiv">
-            <form class="GameForMe">
-                <a id="game_for_me">Вход</a>
-            </form>
-            <form class="Inputs">
-                <input type="text" class="InputWords" placeholder="Электронная почта">
-            </form>
-            <form class="Inputs">
-                <input type="password" class="InputWords" placeholder="Пароль">
-            </form>
-            <form class="Inputs">
-                <a href="index.html" id="TrueReg">Войти</a>
-            </form>
-            <form class="Stabilizator">
-                <a id="WhileNotReg">Ещё не зарегистрированны?&#160;</a><a href="/register" id="registration">Регистрация</a>
-            </form>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BookCourt</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <form class="head_str">
+        <a id="bookcourt">BookCourt</a>
+        <div>
+            <a href="" class="games">Угадай книгу</a>
+            <a href="mathematics.html" class="games">A + B - C = D</a>
+            <a href="" class="games">Книга по истории</a>
         </div>
-    </body>
+        <div>
+            <a href="/login" class="identification">Вход</a>
+        </div>
+    </form>
+    <hr size="2" style="background-color: black;">
+
+
+    <div class="InputsDiv">
+        <form class="GameForMe">
+            <a id="game_for_me">Вход</a>
+        </form>
+
+        <input type="text" class="InputWords" id=email placeholder="Электронная почта">
+        <input type="password" class="InputWords" id=password placeholder="Пароль">
+        <input type="submit" value="Войти" id="but_sumbit">
+    
+        <form class="Stabilizator">
+            <a id="WhileNotReg">Ещё не зарегистрированны?&#160;</a>
+            <a href="/register" id="registration">Регистрация</a>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#but_sumbit").click(function(){
+                var email = $("#email").val().trim();
+                var password = $("#password").val().trim();
+
+                if (email != "" && password != ""){
+                    $.ajax({
+                        url: '/auth/login',
+                        type: 'post',
+                        data: {username:email, password:password},
+                        success: function(response){
+                            console.log(response);
+                        }
+                    })
+                }
+            })
+        });
+    </script>
+</body>
 </html>
