@@ -7,6 +7,8 @@ from auth.models import User
 from auth.schemas import UserCreate, UserRead
 from auth.manager import get_user_manager
 
+from pages.router import router as router_pages
+
 app = FastAPI(title="BookCourt Games")
 
 
@@ -26,3 +28,5 @@ app.include_router(
     prefix="/auth",
     tags=["Auth"],
 )
+
+app.include_router(router_pages)

@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-
-<body>
-    <form method="post" action="">
-        <div class="container">
-            <h1>Login Page</h1>
-
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" id="password" required>
-
-            <button type="submit" class="log_button">Login</button>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BookCourt</title>
+        <link href="styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <form class="head_str"> 
+            <a id="bookcourt">BookCourt</a>
+            <div>
+                <a href="" class="games">Угадай книгу</a>
+                <a href="mathematics.html" class="games">A + B - C = D</a>
+                <a href="" class="games">Книга по истории</a>
+            </div>
+            <div>
+                <a href="/login" class="identification">Вход</a>
+            </div>
+        </form>
+        <hr size="2" style="background-color: black;">
+        <div class="InputsDiv">
+            <form class="GameForMe">
+                <a id="game_for_me">Вход</a>
+            </form>
+            <form class="Inputs">
+                <input type="text" class="InputWords" placeholder="Электронная почта">
+            </form>
+            <form class="Inputs">
+                <input type="password" class="InputWords" placeholder="Пароль">
+            </form>
+            <form class="Inputs">
+                <a href="index.html" id="TrueReg">Войти</a>
+            </form>
+            <form class="Stabilizator">
+                <a id="WhileNotReg">Ещё не зарегистрированны?&#160;</a><a href="/register" id="registration">Регистрация</a>
+            </form>
         </div>
-    </form>
-</body>
-
+    </body>
 </html>
