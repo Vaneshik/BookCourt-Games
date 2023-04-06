@@ -145,6 +145,7 @@ body {
 }
 
 #TrueReg {
+    font-size: 30px;
     box-sizing: border-box;
     text-decoration: none; /* Убираем подчёркивание */
     color: black;
@@ -156,6 +157,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#TrueReg:hover {
+    background: #CFD1C9;
+}
+
+#TrueReg:active{
+    background: #808479;
 }
 
 .InputMathematics {

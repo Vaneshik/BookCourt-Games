@@ -14,3 +14,9 @@ $(document).ready(function () {
         }
     })
 });
+
+document.getElementById('password').addEventListener('keypress', function(event) {
+    if (event.keyCode == 13) {
+        document.getElementById('TrueReg').click();
+    }
+});
