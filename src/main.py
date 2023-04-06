@@ -9,7 +9,7 @@ from auth.manager import get_user_manager
 
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
-from fastapi.exception_handlers import http_exception_handler, request_validation_exception_handler
+from fastapi.exception_handlers import http_exception_handler
 from starlette.exceptions import HTTPException as StarletteHTTPException
 # from pages.router import router as router_pages
 
@@ -50,30 +50,42 @@ app.include_router(
 
 
 @app.get("/")
-def get_index_page(request: Request):
+async def get_index_page(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
 @app.get("/login")
-def get_login_page(request: Request):
+async def get_login_page(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
 
 @app.get("/register")
-def get_register_page(request: Request):
+async def get_register_page(request: Request):
     return templates.TemplateResponse("register.html", {"request": request})
 
 
 @app.get("/hotcold")
-def get_register_page(request: Request, user: User = Depends(current_user)):
+async def get_register_page(request: Request, user: User = Depends(current_user)):
     return templates.TemplateResponse("hotcold.html", {"request": request})
 
 
+@app.post("/hotcold/getAns")
+async def get_register_page(request: Request, user: User = Depends(current_user)):
+    req_json = await request
+    return {"status": "ok"}
+
+
 @app.get("/math")
-def get_register_page(request: Request, user: User = Depends(current_user)):
+async def get_register_page(request: Request, user: User = Depends(current_user)):
     return templates.TemplateResponse("math.html", {"request": request})
 
 
+@app.post("/math/getAns")
+async def get_register_page(request: Request, user: User = Depends(current_user)):
+    req_json = await request.json()
+    return {"status": "ok"}
+
+
 @app.get("/history")
-def get_register_page(request: Request, user: User = Depends(current_user)):
+async def get_register_page(request: Request, user: User = Depends(current_user)):
     return templates.TemplateResponse("history.html", {"request": request})

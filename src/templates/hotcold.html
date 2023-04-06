@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>BookCourt</title>
-        <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet" />
-    </head>
-    <body>
-        <form class="head_str"> 
-            <a id="bookcourt" href="/">BookCourt</a>
-            <div class="GamesInHead">
-                <a href="/hotcold" class="games">Угадай книгу</a>
-                <a href="/math" class="games">A + B - C = D</a>
-                <a href="/history" class="games">Книга по истории</a>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BookCourt</title>
+    <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="head_str">
+        <a id="bookcourt" href="/">BookCourt</a>
+        <div class="GamesInHead">
+            <a href="/hotcold" class="games">Угадай книгу</a>
+            <a href="/math" class="games">A + B - C = D</a>
+            <a href="/history" class="games">Книга по истории</a>
+        </div>
+    </div>
+    <hr size="1" style="background-color: black;">
+    <div class="HotColdDiv">
+        <div class="Stabilizator">
+            <a id="game_for_me">Угадай книгу</a>
+        </div>
+        <div class="HoldColdsDiv">
+            <div class="Stabilizator">
+                <input type="text" placeholder="Введите слово" class="InputBooks"></input>
             </div>
-        </form>
-        <hr size="1" style="background-color: black;">
-        <div class="HotColdDiv">
-            <form class="Stabilizator">
-                <a id="game_for_me">Угадай книгу</a>
-            </form>
-            <div class="HoldColdsDiv">
-                <form class="Stabilizator">
-                    <input type="text" placeholder="Вводите слово" class="InputBooks"></input>
-                </form>
-                <form class="Stabilizator">
-                    <a href="/hotcold" class="HistoryButton">Отправить</a>
-                </form>
+            <div class="Stabilizator">
+                <a href="" class="HistoryButton">Отправить</a>
             </div>
         </div>
+    </div>
 
-    </body>
+</body>
+
 </html>
