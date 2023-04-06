@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BookCourt</title>
+    <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="{{ url_for('static', path='/js/math.js') }}"></script>
+</head>
+
+<body>
+    <form class="head_str">
+        <a id="bookcourt" href="/">BookCourt</a>
+        <div>
+            <a href="/hotcold" class="games">Угадай книгу</a>
+            <a href="/math" class="games">A + B - C = D</a>
+            <a href="/history" class="games">Книга по истории</a>
+        </div>
+    </form>
+    <hr size="1" style="background-color: black;">
+    <div class="MathematicsDiv">
+        <div class="GameForMe">
+            <a id="game_for_me">A + B - C = D</a>
+        </div>
+        <div class="InputsMathematics">
+            <input text-align:center type="text" class="InputMathematics" placeholder="Введите фразу">
+        </div>
+        <div class="Stabilizator">
+            <button class="DeleteWord" onclick="getJson()">Получить ответ</button>
+        </div>
+        <div class="Inputs">
+            <a id="MathematicsAnswer">Ответ</a>
+        </div>
+        <div class="Stabilizator">
+            <button class="AddAndPopWord" onclick="AddWord('+')">Добавить</button>
+            <bottom class="AddAndPopWord" onclick="location.reload()">Заново</bottom>
+            <button class="AddAndPopWord" onclick="AddWord('-')">Отнять</button>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,344 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+body {
+    height: auto;
+    background-color: #FDEED1;
+    font-size: 30px;
+    font-family: 'Podkova', serif;
+}
+
+.identification {   
+    justify-content: right; /* Выравнивание элементов по правому краю */
+    font-size: 21px;
+    display: inline-block; /* Строчно-блочный элемент */
+    background: #EFE4CF; /* цвет фона */
+    color: #000000; /* черный цвет текста */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 90px; /* Скругляем уголки */
+}
+
+.games {
+    display: flex;
+    justify-content: right; /* Выравнивание элементов по правому краю */
+    font-size: 21px;
+    display: inline-block; /* Строчно-блочный элемент */
+    background: #B4B8AB; /* цвет фона */
+    color: #000000; /* черный цвет текста */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 90px; /* Скругляем уголки */
+    margin-right: 0.2em;
+}
+
+#bookcourt {
+    font-size: 35px;
+    margin-right: auto;
+    background: none;
+    color: #000000;
+    text-decoration: none;
+    padding: 0rem 0rem; /* Поля вокруг текста */  
+}
+
+@media (max-device-width: 450px) {
+    .games, .identification {
+        font-size: 26px;
+    }
+}
+
+.StartGame {
+    text-decoration: none; /* Убираем подчёркивание */
+    color: black;
+    font-family: 'Podkova', serif;
+    background: #EFE4CF; /* цвет фона */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    border-radius: 90px; /* Скругляем уголки */
+    border: none;
+    font-size: 29px;
+}
+
+.head_str{
+    padding-top: 0.6%;
+    display: flex;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.gameWord{
+    font-size: 21px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /*background-color: white;*/
+    grid-row-gap: 15%;
+}
+
+.gameCanvas{
+    display: block;
+    border-radius: 10px;
+    flex-basis: 30%;
+    background-color: #B4B8AB;
+    font-size: 30px;
+    font-family: 'Podkova', serif;
+    border: none;
+    font-size: 29px;
+}
+
+.BookcourtDiv {
+    display: flex;
+    justify-content: left;
+}
+
+#game_for_me {
+    display: flex;
+    margin: auto;/* Выравнивание элементов*/
+    font-size: 30px;
+    display: inline-block; /* Строчно-блочный элемент */
+    color: #000000; /* черный цвет текста */
+    border-radius: 90px; /* Скругляем уголки */
+    font-weight: 700; /* Жирность текста */
+}
+
+.GameForMe {
+    display: flex;
+    justify-content: center;    
+}
+
+.InputWords {
+    box-sizing: border-box;
+    font-size: 30px;
+    border-radius: 90px; /* Скругляем уголки */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    width: 45%;
+    font-family: 'Podkova', serif;
+    border-color: white; /* Цвет границы */ 
+    outline: white;
+}
+
+.Inputs {
+    display: flex;
+    justify-content: center; 
+}
+
+.InputsDiv {
+    display: grid;
+    grid-row-gap: 10%;
+}
+
+#WhileNotReg {
+    font-size: 20px;
+    font-family: 'Podkova', serif;
+    color: black;
+}
+
+#registration {
+    font-size: 20px;
+    font-family: 'Podkova', serif;
+    color: black;
+}
+
+.Stabilizator {
+    display: flex;
+    justify-content: center; 
+}
+
+#TrueReg {
+    box-sizing: border-box;
+    text-decoration: none; /* Убираем подчёркивание */
+    color: black;
+    font-family: 'Podkova', serif;
+    background: #B4B8AB; /* цвет фона */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    width: 45%;
+    border-radius: 90px; /* Скругляем уголки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.InputMathematics {
+    box-sizing: border-box;
+    font-size: 30px;
+    border-radius: 90px; /* Скругляем уголки */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    width: 100%;
+    font-family: 'Podkova', serif;
+    border-color: white; /* Цвет границы */ 
+    outline: white;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    z-index: 8;
+    padding-right: 58px;
+}
+
+.trash {
+    background: none;
+    border: none;
+    display: inline;
+    z-index: 9;
+    position: absolute;
+    margin-right: 0.5%;
+}
+
+.InputsMathematics {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: flex-end;
+    width: 78%;
+}
+
+.signs {
+    font-size: 60px;
+    justify-content: center;
+}
+
+.MathematicsDivDop {
+    display: grid;
+    grid-row-gap: 10%;
+}
+
+#MathematicsAnswer {
+    box-sizing: border-box;
+    text-decoration: none; /* Убираем подчёркивание */
+    color: black;
+    font-family: 'Podkova', serif;
+    background: white; /* цвет фона */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    width: 78%;
+    border-radius: 90px; /* Скругляем уголки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.AddAndPopWord {
+    box-sizing: border-box;
+    text-decoration: none; /* Убираем подчёркивание */
+    color: black;
+    font-family: 'Podkova', serif;
+    background: #EFE4CF; /* цвет фона */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    width: 26%;
+    border-radius: 90px; /* Скругляем уголки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 29px;
+}
+
+.DeleteWord {
+    box-sizing: border-box;
+    text-decoration: none; /* Убираем подчёркивание */
+    color: black;
+    font-family: 'Podkova', serif;
+    background: #EFE4CF; /* цвет фона */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    width: 78%;
+    border-radius: 90px; /* Скругляем уголки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 29px;
+}   
+
+/* https://i.ytimg.com/vi/UWok7AP7TnU/maxresdefault.jpg */
+
+.HistoriesDiv {
+    display: grid;
+    grid-row-gap: 5%;
+}
+
+.InputHistories {
+    box-sizing: border-box;
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    font-size: 30px;
+    border-radius: 10px; /* Скругляем уголки */
+    width: 78%;
+    font-family: 'Podkova', serif;
+    border-color: white; /* Цвет границы */ 
+    outline: white;
+    text-align: left;
+    text-decoration: none;
+    margin-top: 0px;
+    resize: none;
+}
+
+.HistoryButton {
+    box-sizing: border-box;
+    text-decoration: none; /* Убираем подчёркивание */
+    color: black;
+    font-family: 'Podkova', serif;
+    background: #EFE4CF; /* цвет фона */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    width: 26%;
+    border-radius: 90px; /* Скругляем уголки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 29px;
+}
+
+.InputBooks {
+    box-sizing: border-box;
+    font-size: 30px;
+    border-radius: 90px; /* Скругляем уголки */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    width: 78%;
+    font-family: 'Podkova', serif;
+    border-color: white; /* Цвет границы */ 
+    outline: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.HotColdDiv {
+    display: grid;
+    grid-row-gap: 15%;
+}
+
+.HoldColdsDiv {
+    display: grid;
+    grid-row-gap: 5%;
+}
+
+.sign_center {
+    display: flex;
+    justify-content: center; 
+}
+
+.AddAndPopWord:hover, .DeleteWord:hover, .HistoryButton:hover, .StartGame:hover {
+    background: #F9EFDD;
+}
+
+.AddAndPopWord:active, .DeleteWord:active, .HistoryButton:active {
+    background: #CDC3B0; 
+}
+
+.games:hover, .gameCanvas:hover {
+    background: #CFD1C9;
+}
+
+.games:active, .gameCanvas:active {
+    background: #808479;
+}
+
+#checkboxes {
+    content: 'Введите текст';
+    width: 78%;
+}
+
+@font-face {
+    font-family: "Podkova"; 
+    src: url("/static/fonts/Podkova.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 

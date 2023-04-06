@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BookCourt</title>
+        <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet" />
+    </head>
+    <body>
+        <form class="head_str"> 
+            <a id="bookcourt" href="/">BookCourt</a>
+            <div>
+                <a href="/hotcold" class="games">Угадай книгу</a>
+                <a href="/math" class="games">A + B - C = D</a>
+                <a href="/history" class="games">Книга по истории</a>
+            </div>
+        </form>
+        <hr size="1" style="background-color: black;">
+        <div class="HistoriesDiv">
+            <form class="Stabilizator">
+                <a id="game_for_me">Книга по истории</a>
+            </form>
+            <form class="Stabilizator">
+                <textarea placeholder="Вводите историю" class="InputHistories" cols="80" rows="10" resize:none></textarea>
+            </form>
+            <form class="Stabilizator">
+                <button class="HistoryButton" onclick="location.reload()">Узнать книгу</button>
+            </form>
+        </div>
+
+    </body>
+</html>

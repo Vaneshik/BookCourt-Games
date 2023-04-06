@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>BookCourt</title>
-        <link href="styles.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <form class="head_str"> 
-            <a id="bookcourt">BookCourt</a>
-            <div>
-                <a href="" class="games">Угадай книгу</a>
-                <a href="mathematics.html" class="games">A + B - C = D</a>
-                <a href="" class="games">Книга по истории</a>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BookCourt</title>
+    <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="head_str">
+        <a class="games" id="bookcourt" href="/">BookCourt</a>
+        <div>
+            <a href="/hotcold" class="games">Угадай книгу</a>
+            <a href="/math" class="games">A + B - C = D</a>
+            <a href="/history" class="games">Книга по истории</a>
+        </div>
+    </div>
+    <hr size="1" style="background-color: black;">
+    <form class="GameForMe">
+        <a id="game_for_me">Играй с нами!</a>
+    </form>
+    <form class="gameWord">
+        <button class="gameCanvas" onclick="location.href='/hotcold'" type="button">
+            <p align="center">Угадай книгу</a>
+            <p align="center">Игра по принципу "горячо - холодно". Загадывается книга. Вам нужно ее отгадать. Для этого он вводит название книги. Эта книга получает номер рейтинга. Чем меньше номер, тем ближе книга к ответу. </p>
+            <p class="StartGame">Играть!</p>
+            <br>
             </div>
-            <div>
-                <a href="/login" class="identification">Вход</a>
-            </div>
-        </form>
-        <hr size="1" style="background-color: black;">
-        <form class="GameForMe">
-            <a id="game_for_me">Играй с нами!</a>
-        </form>
-        <form class="gameWord">
-            <div class="gameCanvas">
-                <p>Угадай книгу</p>
-            </div>
-            <div class="gameCanvas">
-                <p>A + B - C = D</p>
-            </div>
-            <div class="gameCanvas">
-                <p>Книга по истории</p>
-            </div>
-        </form>
-    </body>
+            <button class="gameCanvas" onclick="location.href='/math'" type="button">
+                <p align="center">A + B - C = D</p>
+                <p align="center">Бывает так, что хочется прочесть любимую книгу, но в другом жанре или от другого автора. Выберите книгу и с помощью простой арифметики удалите или добавте жанр/автора. Кроме этого, вы можете вычитать и прибавлять слова к книге. В результате вы получаете список книг, соответствующих запросу.</p>
+                <p class="StartGame">Играть!</p>
+                <br>
+            </button>
+            <button class="gameCanvas" onclick="location.href='/history'" type="button">
+                <p align="center">Книга по истории</p>
+                <p align="center">Придумайте историю, напишите ее в игре и посмотрите, какие существуют похожие на нее книги.</p>
+                <p align="center" class="StartGame">Играть!</p>
+                <br>
+            </button>
+    </form>
+</body>
+
 </html>

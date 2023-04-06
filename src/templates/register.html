@@ -1,51 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>BookCourt</title>
-        <link href="styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <form class="head_str">
-            <a id="bookcourt">BookCourt</a>
-            <div>
-                <a href="" class="games">Угадай книгу</a>
-                <a href="mathematics.html" class="games">A + B - C = D</a>
-                <a href="" class="games">Книга по истории</a>
-            </div>
-            <div>
-                <a href="identification.html" class="identification">Вход</a>
-            </div>
-        </form>
-        <hr size="2" style="background-color: black" />
-        <div class="InputsDiv">
-            <form class="GameForMe">
-                <a id="game_for_me">Регистрация</a>
-            </form>
-            <form class="Inputs">
-                <input
-                    type="text"
-                    class="InputWords"
-                    placeholder="Электронная почта"
-                />
-            </form>
-            <form class="Inputs">
-                <input
-                    type="password"
-                    class="InputWords"
-                    placeholder="Пароль"
-                />
-            </form>
-            <form class="Inputs">
-                <input
-                    type="password"
-                    class="InputWords"
-                    placeholder="Повторите пароль"
-                />
-            </form>
-            <form class="Inputs">
-                <a href="index.html" id="TrueReg">Зарегистрироваться</a>
-            </form>
+
+<head>
+    <meta charset="UTF-8">
+    <title>BookCourt</title>
+    <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="head_str">
+        <a id="bookcourt" href="/">BookCourt</a>
+        <div>
+            <a href="/hotcold" class="games">Угадай книгу</a>
+            <a href="/math" class="games">A + B - C = D</a>
+            <a href="/history" class="games">Книга по истории</a>
         </div>
-    </body>
+    </div>
+    <hr size="2" style="background-color: black;">
+    <div class="InputsDiv">
+        <div class="GameForMe">
+            <a id="game_for_me">Регистрация</a>
+        </div>
+        <div class="Inputs">
+            <input type="text" class="InputWords" id="email" placeholder="Электронная почта">
+        </div>
+        <div class="Inputs">
+            <input type="password" class="InputWords" id="password" placeholder="Пароль">
+        </div>
+        <div class="Inputs">
+            <input type="password" class="InputWords" placeholder="Повторите пароль">
+        </div>
+        <div class="Inputs">
+            <input type="submit" id="TrueReg">Зарегистрироваться</a>
+        </div>
+    </div>
+</body>
+<script src="{{ url_for('static', path='/js/register.js') }}"></script>
+
 </html>
