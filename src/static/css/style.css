@@ -9,6 +9,17 @@ body {
     font-family: 'Podkova', serif;
 }
 
+.svg {
+	width: 100%;
+	height: auto;
+}
+
+.svg:hover {
+	cursor: pointer;
+	filter: opacity(60%);
+}
+
+
 .identification {   
     justify-content: right; /* Выравнивание элементов по правому краю */
     font-size: 21px;

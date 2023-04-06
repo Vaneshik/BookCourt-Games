@@ -13,35 +13,42 @@ function AddWord(s) {
     newButton.className = "trash";
     newButton.setAttribute("onclick", "bts(this)");
     var newImg = document.createElement('img');
+    newImg.className = "svg";
     newImg.src = '/static/img/trash.svg';
     newButton.appendChild(newImg);
     newDiv.appendChild(newButton);
     newDiv.appendChild(newInput);
-    lastInput.parentNode.insertBefore(newDiv, lastInput.nextSibling);
-
+    $(newDiv).hide().insertBefore(lastInput.nextSibling).fadeIn(400);
     newDiv = document.createElement('div');
     newDiv.className = "sign_center";
     newInput = document.createElement('a');
     newInput.className = "signs";
     newInput.innerHTML = s
     newDiv.appendChild(newInput);
-    lastInput.parentNode.insertBefore(newDiv, lastInput.nextSibling);
+    $(newDiv).hide().insertBefore(lastInput.nextSibling).fadeIn(400);
+}
+
+function reload(){
+    var el = document.getElementsByClassName("InputMathematics")[0];
+    el.value = "";
 }
 
 function bts(s){
     var node = s.parentNode;
     var prev_node = node.previousSibling;
-    $(node).fadeOut(300, function(){ $(node).remove(); });
-    $(prev_node).fadeOut(300, function(){ $(prev_node).remove(); });
+    $(node).fadeOut(400, function(){ $(node).remove(); });
+    $(prev_node).fadeOut(400, function(){ $(prev_node).remove(); });
 }
 
 function getJson(){
     var inp = document.getElementsByClassName('InputMathematics');
     var s = [];
+    var error = inp.length == 1;
     for(let i = 0; i < inp.length; i++){
+        error = (error || inp[i].value == "");
         s.push(inp[i].value);
     }
-    
+
     var sign = document.getElementsByClassName('signs');
     var si = [];
     for(let i = 0; i < sign.length; i++){
@@ -49,5 +56,21 @@ function getJson(){
     }
 
     var data = JSON.stringify({"labels": s, "signs": si});
-    return data;
+    return [error, data];
 }
+
+$(document).ready(function () {
+    $(".DeleteWord").click(function () {
+        const [error, data] = getJson();
+        if (!error) {
+            $.ajax({
+                url: '/math/getAns',
+                type: 'post',
+                data: data,
+                contentType: "application/json; charset=utf-8",
+                success: function (response) { console.log(response) },
+                error: function (jqXHR, exception) { alert('Error ' + jqXHR.responseText) },
+            })
+        }
+    })
+});
