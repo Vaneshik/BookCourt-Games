@@ -68,7 +68,9 @@ $(document).ready(function () {
                 type: 'post',
                 data: data,
                 contentType: "application/json; charset=utf-8",
-                success: function (response) { console.log(response) },
+                success: function (response) { 
+                    $("#MathematicsAnswer").text(response["ans"]);
+                 },
                 error: function (jqXHR, exception) { alert('Error ' + jqXHR.responseText) },
             })
         }

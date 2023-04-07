@@ -1,30 +1,42 @@
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, AutoModel
+from transformers.modeling_outputs import BaseModelOutput
 import torch
 
 
-def mean_pooling(model_output, attention_mask):
-    token_embeddings = model_output[0]
-    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
-    sum_embeddings = torch.sum(token_embeddings * input_mask_expanded, 1)
-    sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
-    return sum_embeddings / sum_mask
+enc_tokenizer = AutoTokenizer.from_pretrained('cointegrated/LaBSE-en-ru')
+encoder = AutoModel.from_pretrained('cointegrated/LaBSE-en-ru')
 
+dec_tokenizer = AutoTokenizer.from_pretrained('cointegrated/rut5-base-labse-decoder')
+decoder = AutoModelForSeq2SeqLM.from_pretrained('cointegrated/rut5-base-labse-decoder')
 
-def getEmb(prompt):
-    encoded_input = tokenizer(prompt, padding=True, truncation=True, max_length=24, return_tensors='pt')
+def encode(texts):
+    encoded_input = enc_tokenizer(texts, padding=True, truncation=True, max_length=512, return_tensors='pt')
     with torch.no_grad():
-        model_output = model(**encoded_input)
-    return mean_pooling(model_output, encoded_input['attention_mask'])   
+        model_output = encoder(**encoded_input.to(encoder.device))
+        embeddings = model_output.pooler_output
+        embeddings = torch.nn.functional.normalize(embeddings)
+    return embeddings
+
+def decode(embeddings, max_length=256, repetition_penalty=3.0, num_beams=3, **kwargs):
+    out = decoder.generate(
+        encoder_outputs=BaseModelOutput(last_hidden_state=embeddings.unsqueeze(1)), 
+        max_length=max_length, 
+        num_beams=num_beams,
+        repetition_penalty=repetition_penalty,
+    )
+    return ' '.join([dec_tokenizer.decode(tokens, skip_special_tokens=True) for tokens in out])
 
 
 def getAns(inp):
     labels, signs = inp['labels'], inp['signs']
-    start = getEmb(labels[0])
+    start = encode(labels[0])
     for label, sign in zip(labels[1:], signs):
-        label_emb = getEmb(label)
+        label_emb = encode(label)
         start += label_emb if sign == '+' else -label_emb
-    return tokenizer.decode(start)
+    return decode(start)
 
 
-tokenizer = AutoTokenizer.from_pretrained("sberbank-ai/sbert_large_nlu_ru")
-model = AutoModel.from_pretrained("sberbank-ai/sbert_large_nlu_ru")
+backbone = "cointegrated/rut5-base-labse-decoder"
+tokenizer = AutoTokenizer.from_pretrained(backbone)
+model = AutoModel.from_pretrained(backbone)
+decoder = AutoModelForSeq2SeqLM.from_pretrained(backbone)
