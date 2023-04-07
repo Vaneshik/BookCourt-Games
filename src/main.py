@@ -12,7 +12,7 @@ from fastapi.responses import RedirectResponse
 from fastapi.exception_handlers import http_exception_handler
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from ml.reco2.reco2 import getAns
+# from ml.reco2.reco2 import getAns
 # from pages.router import router as router_pages
 
 app = FastAPI(title="BookCourt Games")
@@ -73,7 +73,8 @@ async def get_register_page(request: Request, user: User = Depends(current_user)
 
 @app.post("/hotcold/getAns")
 async def get_register_page(request: Request, user: User = Depends(current_user)):
-    req_json = await request
+    req_json =  await request.json()
+    print(req_json)
     return {"status": "ok"}
 
 
@@ -82,11 +83,11 @@ async def get_register_page(request: Request, user: User = Depends(current_user)
     return templates.TemplateResponse("math.html", {"request": request})
 
 
-@app.post("/math/getAns")
-async def get_register_page(request: Request, user: User = Depends(current_user)):
-    req_json = await request.json()
-    ans = getAns(req_json)
-    return {"ans": ans}
+# @app.post("/math/getAns")
+# async def get_register_page(request: Request, user: User = Depends(current_user)):
+#     req_json = await request.json()
+#     ans = getAns(req_json)
+#     return {"ans": ans}
 
 
 @app.get("/history")

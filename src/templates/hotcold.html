@@ -6,6 +6,7 @@
     <title>Угадывай - BookCourt</title>
     <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet" />
     <link href="{{ url_for('static', path='/img/favicon.ico') }}" rel="icon" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -24,14 +25,14 @@
         </div>
         <div class="HoldColdsDiv">
             <div class="Stabilizator">
-                <input type="text" placeholder="Введите слово" class="InputBooks"></input>
+                <input type="text" placeholder="Введите слово" id="inp" class="InputBooks"></input>
             </div>
             <div class="Stabilizator">
-                <a href="" class="HistoryButton">Отправить</a>
+                <input type="submit" id="sendBtn" class="HistoryButton" value="Отправить"></input>
             </div>
         </div>
     </div>
-
+    <script src="/static/js/hotcold.js"></script>
 </body>
 
 </html>
