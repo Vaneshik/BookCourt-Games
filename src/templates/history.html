@@ -27,10 +27,13 @@
             <textarea placeholder="Введите историю" id="inp" class="InputHistories" cols="80" rows="10" resize:none></textarea>
         </div>
         <div class="Stabilizator">
-            <input type="submit" class="HistoryButton" id="sendBtn" value="Узнать книгу"></input>
+            <input type="submit" class="DeleteWord" id="sendBtn" value="Получить ответ"></input>
+        </div>
+        <div class="Inputs">
+            <a id="HistAnswer">Ответ</a>
         </div>
     </div>
-    <script src="/static/js/history.js"></script>
+    <script src="{{ url_for('static', path='/js/history.js') }}"></script>
 
 </body>
 
