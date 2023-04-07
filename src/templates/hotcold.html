@@ -6,7 +6,10 @@
     <title>Угадывай - BookCourt</title>
     <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet" />
     <link href="{{ url_for('static', path='/img/favicon.ico') }}" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>  
+    <script src="/static/js/jquery.ui.autocomplete.scroll.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +28,7 @@
         </div>
         <div class="HoldColdsDiv">
             <div class="Stabilizator">
-                <input type="text" placeholder="Введите слово" id="inp" class="InputBooks"></input>
+                <input type="text" placeholder="Введите слово" id="tags" class="InputBooks"></input>
             </div>
             <div class="Stabilizator">
                 <input type="submit" id="sendBtn" class="HistoryButton" value="Отправить"></input>

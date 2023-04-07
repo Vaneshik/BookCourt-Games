@@ -14,6 +14,12 @@ model = Word2Vec.load("./static/word2vec.model")
 print("Датасет и модели загружены!")
 
 
+def T9(pref):
+    pref = pref.lower().strip()
+    data['filter'] = data.name.apply(lambda x: pref == x.strip().lower()[:len(pref)])
+    return list(data[data['filter']].name)
+
+
 def get_top(lemm, data):
     data['sim'] = data.lemmatize_name.apply(
         lambda x: model.wv.n_similarity(lemm, x))
