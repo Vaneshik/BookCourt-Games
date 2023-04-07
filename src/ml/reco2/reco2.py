@@ -17,7 +17,7 @@ def encode(texts):
         embeddings = torch.nn.functional.normalize(embeddings)
     return embeddings
 
-def decode(embeddings, max_length=256, repetition_penalty=3.0, num_beams=3, **kwargs):
+def decode(embeddings, max_length=5, repetition_penalty=3.0, num_beams=3, **kwargs):
     out = decoder.generate(
         encoder_outputs=BaseModelOutput(last_hidden_state=embeddings.unsqueeze(1)), 
         max_length=max_length, 
@@ -32,7 +32,7 @@ def getAns(inp):
     start = encode(labels[0])
     for label, sign in zip(labels[1:], signs):
         label_emb = encode(label)
-        start += label_emb if sign == '+' else -label_emb
+        start += label_emb if sign == '+' else -1 * label_emb
     return decode(start)
 
 

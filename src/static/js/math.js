@@ -24,8 +24,18 @@ function AddWord(s) {
     newInput = document.createElement('a');
     newInput.className = "signs";
     newInput.innerHTML = s
+    newInput.setAttribute("onclick", "reverse(this)");
     newDiv.appendChild(newInput);
     $(newDiv).hide().insertBefore(lastInput.nextSibling).fadeIn(400);
+}
+
+function reverse(s){
+    if($(s).text() == "+"){
+        $(s).text("-");
+    }
+    else{
+        $(s).text("+");
+    }
 }
 
 function reload(){
