@@ -73,7 +73,7 @@ async def get_register_page(request: Request, user: User = Depends(current_user)
 
 @app.post("/hotcold/getAns")
 async def get_register_page(request: Request, user: User = Depends(current_user)):
-    req_json =  await request.json()
+    req_json = await request.json()
     print(req_json)
     return {"status": "ok"}
 
@@ -93,3 +93,10 @@ async def get_register_page(request: Request, user: User = Depends(current_user)
 @app.get("/history")
 async def get_register_page(request: Request, user: User = Depends(current_user)):
     return templates.TemplateResponse("history.html", {"request": request})
+
+
+@app.post("/history/getAns")
+async def get_register_page(request: Request, user: User = Depends(current_user)):
+    req_json = await request.json()
+    print(req_json)
+    return {"status": "ok"}
