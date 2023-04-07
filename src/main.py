@@ -13,7 +13,7 @@ from fastapi.exception_handlers import http_exception_handler
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from ml.reco2.reco2 import getAns as getAns_game2
-from src.ml.reco2.game13 import getAns3 as getAns_game3
+from ml.reco2.game13 import getAns3 as getAns_game3
 # from pages.router import router as router_pages
 
 app = FastAPI(title="BookCourt Games")
@@ -100,5 +100,5 @@ async def get_register_page(request: Request, user: User = Depends(current_user)
 async def get_register_page(request: Request, user: User = Depends(current_user)):
     req_json = await request.json()
     # print(req_json)
-    ans = getAns_game3(req_json)
+    ans = getAns_game3(req_json["text"])
     return {"ans": ans}

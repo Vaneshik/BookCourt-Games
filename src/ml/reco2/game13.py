@@ -55,8 +55,7 @@ def game2(text, data, stolb):
 #     points = get_points(s)
 
 
-def getAns3(json):
-    s = json["text"]
+def getAns3(s):
     if len(s.split()) < 5:
         kniga = game2(s, data, 'lemmatize_name')
     else:
