@@ -1,6 +1,7 @@
 function addItem(response){
     var stab = $("#game")[0];
-    console.log(stab);
+    var llc = stab.children[stab.children.length - 1];
+    console.log(response);
     if(response[1] == -1){
         console.log('gg');
     }
@@ -8,8 +9,30 @@ function addItem(response){
         alert('Ура победа!!!');
     }
     else{
-        var llc = stab.lastChild;
-        var newDiv = document.createElement('button');
+        var newDiv = document.createElement('div');
+        newDiv.className = "words";
+        var newInpBook = document.createElement('a');
+        newInpBook.setAttribute("width", 30);
+        newInpBook.className = "InputBook";
+        newInpBook.innerHTML = response[0];
+        var newInpScore = document.createElement('a');
+        newInpScore.className = "InputBookToo";
+        newInpScore.innerHTML = response[1];
+        var newDivChild = document.createElement('div');
+        newDivChild.className = "pie";
+        if(response[2] * 100 < 33){
+            newDivChild.setAttribute("style", "--p:" +(response[2] * 100) + ";--c:#e74c3c;;");
+        }
+        else if(response[2] * 100 < 66){
+            newDivChild.setAttribute("style", "--p:" +(response[2] * 100) + ";--c:#f1c40f;");
+        }
+        else{
+            newDivChild.setAttribute("style", "--p:" +(response[2] * 100) + ";--c:#07bc0c;");
+        }
+        newDiv.appendChild(newInpBook);
+        newDiv.appendChild(newInpScore);
+        newDiv.appendChild(newDivChild);
+        $(newDiv).hide().insertBefore(llc.nextSibling).fadeIn(400);
     }
 }
 

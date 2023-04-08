@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Угадывай - BookCourt</title>
     <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', path='/css/curcle.css') }}" rel="stylesheet" />
     <link href="{{ url_for('static', path='/img/favicon.ico') }}" rel="icon" type="image/x-icon">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -27,15 +28,17 @@
             <a id="game_for_me">Угадай книгу</a>
         </div>
         <div class="HoldColdsDiv">
-            <div class="Stabilizator", id="game">
+            <div class="Stabilizator">
                 <input type="text" placeholder="Введите слово" id="tags" class="InputBooks"></input>
             </div>
         </div>
         <div class="Stabilizator">
             <input type="submit" id="sendBtn" class="HistoryButton" value="Отправить"></input>
         </div>
+        <div id="game">
+            <div></div>
+        </div>
     </div>
     <script src="/static/js/hotcold.js"></script>
 </body>
-
 </html>

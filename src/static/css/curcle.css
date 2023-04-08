@@ -20,6 +20,8 @@
 }
 
 .InputBook {
+    display: flex;
+    justify-content: center; 
     background-color: white;
     font-size: 30px;
     border-radius: 90px; /* Скругляем уголки */
