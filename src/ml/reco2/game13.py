@@ -15,8 +15,8 @@ print("Датасет и модели загружены!")
 
 
 def T9(pref):
-    pref = pref.lower().strip()
-    data['filter'] = data.name.apply(lambda x: pref == x.strip().lower()[:len(pref)])
+    pref = re.sub(patterns, '', pref).strip()
+    data['filter'] = data.name.apply(lambda x: pref == re.sub(patterns, '', x).strip().lower()[:len(pref)])
     return list(data[data['filter']].name)
 
 
