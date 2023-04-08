@@ -3,7 +3,7 @@ function addItem(response){
     var llc = stab.children[stab.children.length - 1];
     console.log(response);
     if(response[1] == -1){
-        console.log('gg');
+        alert(response[0]);
     }
     else{
         var newDiv = document.createElement('div');
