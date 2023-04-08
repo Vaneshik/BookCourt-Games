@@ -5,9 +5,6 @@ function addItem(response){
     if(response[1] == -1){
         console.log('gg');
     }
-    else if(response[1] == 1){
-        alert('Ура победа!!!');
-    }
     else{
         var newDiv = document.createElement('div');
         newDiv.className = "words";
@@ -33,6 +30,9 @@ function addItem(response){
         newDiv.appendChild(newInpScore);
         newDiv.appendChild(newDivChild);
         $(newDiv).hide().insertBefore(llc.nextSibling).fadeIn(400);
+        if(response[1] == 1){
+            setTimeout(() => { alert("Победа!!!"); }, 500);
+        }
     }
 }
 
