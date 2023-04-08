@@ -108,5 +108,5 @@ async def get_register_page(request: Request, user: User = Depends(current_user)
 async def get_register_page(request: Request, user: User = Depends(current_user)):
     req_json = await request.json()
     # print(req_json)
-    ans = getAns_game3(req_json["text"])
-    return {"ans": ans}
+    ans, desc = getAns_game3(req_json["text"])
+    return {"ans": ans, "desc": desc[:67]+"..."}

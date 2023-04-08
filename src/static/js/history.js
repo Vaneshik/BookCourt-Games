@@ -8,7 +8,11 @@ $(document).ready(function () {
                 type: 'post',
                 data: JSON.stringify({ text: text }),
                 contentType: "application/json; charset=utf-8",
-                success: function (response) { console.log(response); $("#HistAnswer").text(response["ans"]); },
+                success: function (response) {
+                    console.log(response);
+                    $("#HistAnswer").text(response["ans"]);
+                    $("#HistDesc").text(response["desc"]);
+                },
                 error: function (jqXHR, exception) { alert('Error ' + jqXHR.responseText) },
             })
         }

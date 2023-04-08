@@ -66,4 +66,5 @@ def getAns3(s):
         kniga = game2(s, data, 'lemmatize_name')
     else:
         kniga = game2(s, data, 'lemmatize')
-    return f"{kniga[0]} - {kniga[1]}"
+    return (f"{kniga[0]} - {kniga[1]}", kniga[2])
+    # return f"Аниме екгшмге - Аниме шиемвшРофл ХАХАХАХАХАХХААХАХА"
