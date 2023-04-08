@@ -1,0 +1,41 @@
+.pie {
+    width: 56px;
+    aspect-ratio:1;
+    position:relative;
+    display:inline-grid;
+    place-content:center;
+    border-radius: 50%;
+    inset: 0;
+    margin: 5px;
+    background: conic-gradient(var(--c) calc(var(--p)*1%),white 0);
+}
+
+.words {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: flex-end;
+    width: 78%;
+}
+
+.InputBook {
+    background-color: white;
+    font-size: 30px;
+    border-radius: 90px; /* Скругляем уголки */
+    padding: 0.6rem 1rem; /* Поля вокруг текста */
+    width: 100%;
+    font-family: 'Podkova', serif;
+    border-color: white; /* Цвет границы */ 
+    outline: white;
+    text-align: left;
+}
+
+.InputBookToo {
+    background: none;
+    border: none;
+    display: inline;
+    z-index: 9;
+    position: absolute;
+    margin-right: 78px;
+}

@@ -14,7 +14,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from ml.reco2.reco2 import getAns as getAns_game2
 from ml.reco2.game13 import getAns3 as getAns_game3
-from ml.reco2.game13 import T9
+from ml.reco2.game13 import T9, choi, getAns2
 # from pages.router import router as router_pages
 
 app = FastAPI(title="BookCourt Games")
@@ -70,6 +70,7 @@ async def get_register_page(request: Request):
 
 @app.get("/hotcold")
 async def get_register_page(request: Request, user: User = Depends(current_user)):
+    print(choi())
     return templates.TemplateResponse("hotcold.html", {"request": request})
 
 
@@ -83,8 +84,7 @@ async def get_register_page(request: Request, user: User = Depends(current_user)
 @app.post("/hotcold/getAns")
 async def get_register_page(request: Request, user: User = Depends(current_user)):
     req_json = await request.json()
-    print(req_json)
-    return {"status": "ok"}
+    return {"score" : getAns2(req_json)}
 
 
 @app.get("/math")
@@ -107,6 +107,5 @@ async def get_register_page(request: Request, user: User = Depends(current_user)
 @app.post("/history/getAns")
 async def get_register_page(request: Request, user: User = Depends(current_user)):
     req_json = await request.json()
-    # print(req_json)
     ans, desc = getAns_game3(req_json["text"])
     return {"ans": ans, "desc": desc[:67]+"..."}
