@@ -41,3 +41,12 @@
     position: absolute;
     margin-right: 78px;
 }
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+#HistoryButton:active ~ .wrapper > .item {
+    order: var(--cost);
+}

@@ -7,7 +7,10 @@ function addItem(response){
     }
     else{
         var newDiv = document.createElement('div');
-        newDiv.className = "words";
+        // newDiv.className = "words";
+        newDiv.classList.add("words");
+        newDiv.classList.add("item");
+        newDiv.setAttribute("style", "order: " + response[1]);
         var newInpBook = document.createElement('a');
         newInpBook.setAttribute("width", 30);
         newInpBook.className = "InputBook";
