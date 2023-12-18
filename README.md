@@ -1,2 +1,3 @@
 # BookCourt-Games
 Gamification of data collection
+![lol](https://s25vlx.storage.yandex.net/rdisk/235ef1c6cd768a38523f3604d706a58f9c321b08722a3867bfa14883b94bc7cc/6580243b/YxbnXjyXkwV_R7LbvcZvRC6CztACD1zlb0GAfiyuOpOjE4k0is9GpWsB410mvxzx6s9r7a7kKebEaiYIkeVj_g==?uid=0&filename=photo_2023-04-06_08-00-02.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=120907&hid=1497e97a8e6fbabb32adaeda8d4b9eb9&media_type=image&tknv=v2&etag=d5dd30c2fea3c8332dd9e967340b24e9&rtoken=TzcwvTZzdWKp&force_default=no&ycrid=na-30336404bbcc9ab9910b7c6bf6f91418-downloader5e&ts=60cc688d544c0&s=a285df52bbcfc170a0ed2f5f9c78592e9166684d6d10d52ad77b1685fa7b3342&pb=U2FsdGVkX19qyk_OkP6uhMGpUvhtNXjInSmd3WTgvK6XZybuXBlrPmat1wxNDuw4Mfi7vocxz3KgtzgJayfw8PebxCxkduo2xqvQt_tFVE4)
